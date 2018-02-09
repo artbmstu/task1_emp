@@ -18,8 +18,6 @@ public class Company {
         readFile();
         createEmployees();
         createDepartments();
-        checkTransfer();
-        writeFile(args);
     }
 
     private void readFile(){
@@ -63,7 +61,7 @@ public class Company {
         }
     }
 
-    private void checkTransfer() {
+    public void checkTransfer() {
         changeVariationForWriter = new ArrayList<>();
         depInfo = new ArrayList<>();
         for (int i = 0; i < departments.size(); i++) {
@@ -86,7 +84,7 @@ public class Company {
         }
     }
 
-    private void writeFile(String[] args){
+    public void writeFile(String[] args){
         TextWriter writer = new TextWriter(args, changeVariationForWriter, depInfo);
     }
 }
