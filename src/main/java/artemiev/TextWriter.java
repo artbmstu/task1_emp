@@ -5,9 +5,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TextWriter {
+class TextWriter {
 
-    public TextWriter(String[] args, ArrayList<List<String>> changeVariations, List<String> depInfo) {
+    TextWriter(String[] args, ArrayList<List<String>> changeVariations, List<String> depInfo) {
         FileWriter writer = null;
         try {
             writer = new FileWriter(args[0]);

@@ -11,26 +11,26 @@ import java.util.Arrays;
 import java.util.List;
 
 
-public class TextReader {
+class TextReader {
     private ArrayList<String> employees;
     private ArrayList<List<String>> empDatas;
     private List<String> datas;
     private BigDecimal[] salaries;
     private int[] nums;
 
-    public ArrayList<List<String>> getEmpDatas() {
+    ArrayList<List<String>> getEmpDatas() {
         return empDatas;
     }
 
-    public BigDecimal[] getSalaries() {
+    BigDecimal[] getSalaries() {
         return salaries;
     }
 
-    public int[] getNums() {
+    int[] getNums() {
         return nums;
     }
 
-    public void getInfoFromFile(){
+    void getInfoFromFile(){
         try {
             File file = new File("employees.txt");
             FileReader reader = new FileReader(file);
@@ -52,7 +52,7 @@ public class TextReader {
         }
         checkNumericDatas();
     }
-    public void checkNumericDatas(){
+    void checkNumericDatas(){
         try
         {
             DecimalFormatSymbols symbols = new DecimalFormatSymbols();

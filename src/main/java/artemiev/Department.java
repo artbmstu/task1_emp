@@ -3,7 +3,7 @@ package artemiev;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
-public class Department {
+class Department {
     private ArrayList<Employee> employees;
     private String dep;
     private ArrayList<int[]> averVariants;
@@ -11,23 +11,23 @@ public class Department {
     private int[] mas;
     private BigDecimal sum;
 
-    public Department(String dep){
+    Department(String dep){
         employees = new ArrayList<>();
         this.dep = dep;
     }
 
-    public ArrayList<int[]> getAverVariants() {
+    ArrayList<int[]> getAverVariants() {
         return averVariants;
     }
 
-    public String getDep() {
+    String getDep() {
         return dep;
     }
-    public ArrayList<Employee> getEmployees() {
+    ArrayList<Employee> getEmployees() {
         return employees;
     }
 
-    public BigDecimal averSalary(){
+    BigDecimal averSalary(){
         BigDecimal sum = BigDecimal.ZERO;
         for (Employee i: employees) {
             sum = i.getSalary().add(sum);
@@ -35,11 +35,11 @@ public class Department {
         return sum.divide(new BigDecimal(employees.size()));
     }
 
-    public void addEmployee(Employee employee){
+    void addEmployee(Employee employee){
         employees.add(employee);
     }
 
-    public void variantsAver(){
+    void variantsAver(){
         averVariants = new ArrayList<>();
         for (int i = 1; i <= employees.size(); i++) {
             temp = i;
@@ -63,7 +63,7 @@ public class Department {
         }
     }
 
-    public BigDecimal averageCalculating(int i){
+    BigDecimal averageCalculating(int i){
         sum = new BigDecimal(0);
         for (int j = 0; j < averVariants.get(i).length; j++) {
             sum = sum.add(employees.get(averVariants.get(i)[j]-1).getSalary());

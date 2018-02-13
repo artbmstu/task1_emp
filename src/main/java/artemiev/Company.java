@@ -85,6 +85,6 @@ public class Company {
     }
 
     public void writeFile(String[] args){
-        TextWriter writer = new TextWriter(args, changeVariationForWriter, depInfo);
+        new TextWriter(args, changeVariationForWriter, depInfo);
     }
 }
