@@ -1,4 +1,4 @@
-package artemiev;
+package ru.artemiev.tstask1;
 
 import java.math.BigDecimal;
 

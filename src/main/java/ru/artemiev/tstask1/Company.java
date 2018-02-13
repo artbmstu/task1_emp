@@ -1,20 +1,18 @@
-package artemiev;
+package ru.artemiev.tstask1;
 
 import java.math.BigDecimal;
 import java.util.*;
 
-public class Company {
+ class Company {
     private BigDecimal[] salaries;
     private ArrayList<List<String>> empDatas, changeVariationForWriter;
     private ArrayList<Department> departments;
     private ArrayList<Employee> employees;
     private List<String> changeVariations, depInfo;
-    private String[] args;
     private int[] nums;
     private BigDecimal averageVar;
 
-    public Company(String[] args){
-        this.args = args;
+    public Company(){
         readFile();
         createEmployees();
         createDepartments();

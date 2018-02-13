@@ -1,4 +1,4 @@
-package artemiev;
+package ru.artemiev.tstask1;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -9,7 +9,6 @@ import java.text.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
 
 class TextReader {
     private ArrayList<String> employees;

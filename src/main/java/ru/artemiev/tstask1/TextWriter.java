@@ -1,4 +1,4 @@
-package artemiev;
+package ru.artemiev.tstask1;
 
 import java.io.FileWriter;
 import java.io.IOException;
