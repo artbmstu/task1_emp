@@ -3,7 +3,7 @@ package ru.artemiev.tstask1;
 import java.math.BigDecimal;
 import java.util.*;
 
- class Company {
+ public class Company {
     private BigDecimal[] salaries;
     private ArrayList<List<String>> empDatas, changeVariationForWriter;
     private ArrayList<Department> departments;

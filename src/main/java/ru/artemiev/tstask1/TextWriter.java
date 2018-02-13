@@ -19,7 +19,10 @@ class TextWriter {
             }
         } catch (IOException e) {
             System.out.println("Ошибка при записи в файл");
-        } finally {
+        } catch (NullPointerException np){
+            System.out.println("Не заданы параметры для записи. Запустите метод checkTransfer");
+        }
+        finally {
             try {
                 writer.close();
             } catch (IOException e) {
