@@ -45,13 +45,14 @@ class TextReader {
         }
         datas = new ArrayList<>();
         empDatas = new ArrayList<>();
-        for (int i = 0; i < employees.size(); i++) {
-            datas = Arrays.asList(employees.get(i).trim().split(" "));
+        nums = new int[employees.size()];
+        for (String emp: employees) {
+            datas = Arrays.asList(emp.trim().split(" "));
             empDatas.add(datas);
         }
         checkNumericDatas();
     }
-    void checkNumericDatas(){
+    private void checkNumericDatas(){
         try
         {
             DecimalFormatSymbols symbols = new DecimalFormatSymbols();
@@ -66,12 +67,13 @@ class TextReader {
         }
         catch(ParseException pe)
         {
-            System.out.println("В файле неправильный тип данных зарплаты");
+            System.out.println("В исходном файле неправильный тип данных зарплаты");
+            System.exit(0);
         }
         catch (NumberFormatException nfe){
             System.out.println("Зарплата меньше 0. Исправьте данные в исходном файле");
+            System.exit(0);
         }
-        nums = new int[employees.size()];
         for (int i = 0; i < employees.size(); i++) {
             nums[i] =  Integer.parseInt(empDatas.get(i).get(0));
         }
