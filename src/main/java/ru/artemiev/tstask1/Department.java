@@ -1,74 +1,72 @@
 package ru.artemiev.tstask1;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 
 class Department {
-    private ArrayList<Employee> employees;
-    private String dep;
-    private ArrayList<int[]> averVariants;
+    private final String dep;
     private int temp;
     private int[] mas;
     private BigDecimal sum;
+    private ArrayList<Employee> employees = new ArrayList<>();
 
     Department(String dep){
-        employees = new ArrayList<>();
         this.dep = dep;
     }
 
-    ArrayList<int[]> getAverVariants() {
-        return averVariants;
+    public ArrayList<Employee> getEmployees() {
+        return employees;
     }
 
     String getDep() {
         return dep;
     }
-    ArrayList<Employee> getEmployees() {
-        return employees;
-    }
 
     BigDecimal averSalary(){
         BigDecimal sum = BigDecimal.ZERO;
-        for (Employee i: employees) {
+        for (Employee i: getEmployees()) {
             sum = i.getSalary().add(sum);
         }
-        return sum.divide(new BigDecimal(employees.size()));
+        return sum.divide(new BigDecimal(getEmployees().size()), 2, RoundingMode.HALF_UP);
     }
 
     void addEmployee(Employee employee){
-        employees.add(employee);
+        getEmployees().add(employee);
     }
 
-    void variantsAver(){
-        averVariants = new ArrayList<>();
-        for (int i = 1; i <= employees.size(); i++) {
+    ArrayList<int[]> variantsAver(){
+        ArrayList<int[]> aver = new ArrayList<>();
+        for (int i = 1; i <= getEmployees().size(); i++) {
             temp = i;
             mas = new int[temp];
-            recursion(0, 0);
+            recursion(aver,0, 0);
         }
+        return aver;
     }
 
-    private void recursion(int pos, int maxUsed){
+    ArrayList<int[]> recursion(ArrayList<int[]> aver, int pos, int maxUsed){
         if (pos == temp) {
             int[] temp = new int[mas.length];
             for (int i = 0; i < mas.length; i++) {
                 temp[i] = mas[i];
             }
-            averVariants.add(temp);
+            aver.add(temp);
         } else {
-            for (int i = maxUsed + 1; i <= employees.size(); i++) {
+            for (int i = maxUsed + 1; i <= getEmployees().size(); i++) {
                 mas[pos] = i;
-                recursion(pos + 1, i);
+                recursion(aver,pos + 1, i);
             }
         }
+        return aver;
     }
 
-    BigDecimal averageCalculating(int i){
+    BigDecimal averageCalculating(int i, ArrayList<int[]> averVariants){
         sum = new BigDecimal(0);
         for (int j = 0; j < averVariants.get(i).length; j++) {
-            sum = sum.add(employees.get(averVariants.get(i)[j]-1).getSalary());
+            sum = sum.add(getEmployees().get(averVariants.get(i)[j]-1).getSalary());
         }
-        return sum.divide((new BigDecimal(averVariants.get(i).length)), 2);
+        return sum.divide((new BigDecimal(averVariants.get(i).length)), 2, RoundingMode.HALF_UP);
     }
 }
 

@@ -3,20 +3,15 @@ package ru.artemiev.tstask1;
 import java.math.BigDecimal;
 
 class Employee {
-    private String name, surname, department;
-    private BigDecimal salary;
-    private int num;
+    private final String name, surname;
+    private final BigDecimal salary;
+    private final int num;
 
-    Employee(int num, String name, String surname, String department, BigDecimal salary){
+    Employee(int num, String name, String surname, BigDecimal salary){
         this.num = num;
         this.name = name;
         this.surname = surname;
-        this.department = department;
         this.salary = salary;
-    }
-
-    String getDepartment() {
-        return department;
     }
 
     BigDecimal getSalary() {
@@ -24,6 +19,6 @@ class Employee {
     }
 
     String getFullInfo(){
-        return num + " " + name + " " + surname + " " + department + " " + salary;
+        return num + " " + name + " " + surname + " " + " " + salary;
     }
 }

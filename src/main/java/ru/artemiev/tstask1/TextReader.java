@@ -6,76 +6,68 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.text.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 class TextReader {
-    private ArrayList<String> employees;
-    private ArrayList<List<String>> empDatas;
-    private List<String> datas;
-    private BigDecimal[] salaries;
-    private int[] nums;
+    private Company company;
 
-    ArrayList<List<String>> getEmpDatas() {
-        return empDatas;
-    }
-
-    BigDecimal[] getSalaries() {
-        return salaries;
-    }
-
-    int[] getNums() {
-        return nums;
-    }
-
-    void getInfoFromFile(){
+    void getInfoFromFile(Company company){
         try {
+            this.company = company;
             File file = new File("employees.txt");
             FileReader reader = new FileReader(file);
             BufferedReader in = new BufferedReader(reader);
+            HashSet<String> departments = new HashSet<>();
             String string;
-            employees = new ArrayList<>();
+            int index = -1;
             while ((string = in.readLine()) != null) {
-                employees.add(string);
+                List<String> datas = Arrays.asList(string.trim().split(" "));
+                int tempDepSize = departments.size();
+                departments.add(datas.get(3));
+                if (tempDepSize < departments.size()){
+                    company.addDepartment(datas.get(3));
+                    index++;
+                }
+                for (String dep:
+                     departments) {
+                    if (datas.get(3).equals(dep)) {
+                        company.addEmployee(index, new Employee(Integer.parseInt(datas.get(0)), datas.get(1), datas.get(2), checkNumericDatas(datas.get(4))));
+                    }
+                }
             }
             in.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Ошибка чтения файла");
         }
-        datas = new ArrayList<>();
-        empDatas = new ArrayList<>();
-        nums = new int[employees.size()];
-        for (String emp: employees) {
-            datas = Arrays.asList(emp.trim().split(" "));
-            empDatas.add(datas);
-        }
-        checkNumericDatas();
     }
-    private void checkNumericDatas(){
+    private BigDecimal checkNumericDatas(String salary){
+        BigDecimal decSalary = null;
         try
         {
             DecimalFormatSymbols symbols = new DecimalFormatSymbols();
             symbols.setDecimalSeparator('.');
             DecimalFormat decimalFormat = new DecimalFormat("", symbols);
             decimalFormat.setParseBigDecimal(true);
-            salaries = new BigDecimal[employees.size()];
-            for (int i = 0; i < employees.size(); i++) {
-                salaries[i] = (BigDecimal) decimalFormat.parse(empDatas.get(i).get(4));
-                if (salaries[i].compareTo(BigDecimal.ZERO) < 0) throw new NumberFormatException();
-            }
+            decSalary = (BigDecimal) decimalFormat.parse(salary);
+            if (decSalary.compareTo(BigDecimal.ZERO) < 0) throw new NumberFormatException();
+            return decSalary;
         }
         catch(ParseException pe)
         {
             System.out.println("В исходном файле неправильный тип данных зарплаты");
-            System.exit(0);
+            updateInFile();
         }
         catch (NumberFormatException nfe){
             System.out.println("Зарплата меньше 0. Исправьте данные в исходном файле");
-            System.exit(0);
+            updateInFile();
         }
-        for (int i = 0; i < employees.size(); i++) {
-            nums[i] =  Integer.parseInt(empDatas.get(i).get(0));
-        }
+        return decSalary;
+    }
+
+    private void updateInFile(){
+        System.out.println("После обновления файла с данными введите в консоль \"да\". \n Для выхода из программы введите \"нет\"");
+        Scanner sc = new Scanner(System.in);
+        if (sc.nextLine().equals("да")) getInfoFromFile(company);
+        else if (sc.nextLine().equals("нет")) System.exit(0);
     }
 }

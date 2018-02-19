@@ -1,51 +1,51 @@
-6 Кузьма Стрелков Finance 60000.90 -> Logistics
+1 Роман Герасимов  70000.17 IT -> Logistics
 
-7 Герман Андреев Finance 65000.15 -> Logistics
+2 Вячеслав Волков  80000.22 IT -> Finance
 
-5 Осип Новиков Finance 70000.43 -> Logistics
-6 Кузьма Стрелков Finance 60000.90 -> Logistics
+2 Вячеслав Волков  80000.22 IT -> Logistics
 
-5 Осип Новиков Finance 70000.43 -> Logistics
-7 Герман Андреев Finance 65000.15 -> Logistics
+1 Роман Герасимов  70000.17 IT -> Finance
+2 Вячеслав Волков  80000.22 IT -> Finance
 
-6 Кузьма Стрелков Finance 60000.90 -> Logistics
-7 Герман Андреев Finance 65000.15 -> Logistics
+1 Роман Герасимов  70000.17 IT -> Logistics
+2 Вячеслав Волков  80000.22 IT -> Logistics
 
-5 Осип Новиков Finance 70000.43 -> Logistics
-6 Кузьма Стрелков Finance 60000.90 -> Logistics
-7 Герман Андреев Finance 65000.15 -> Logistics
+1 Роман Герасимов  70000.17 IT -> Finance
+3 Яков Мамонтов  90000.29 IT -> Finance
 
-1 Роман Герасимов IT 70000.17 -> Logistics
+1 Роман Герасимов  70000.17 IT -> Logistics
+3 Яков Мамонтов  90000.29 IT -> Logistics
 
-2 Вячеслав Волков IT 80000.22 -> Finance
+1 Роман Герасимов  70000.17 IT -> Finance
+2 Вячеслав Волков  80000.22 IT -> Finance
+3 Яков Мамонтов  90000.29 IT -> Finance
 
-2 Вячеслав Волков IT 80000.22 -> Logistics
+1 Роман Герасимов  70000.17 IT -> Logistics
+2 Вячеслав Волков  80000.22 IT -> Logistics
+3 Яков Мамонтов  90000.29 IT -> Logistics
 
-1 Роман Герасимов IT 70000.17 -> Finance
-2 Вячеслав Волков IT 80000.22 -> Finance
+1 Роман Герасимов  70000.17 IT -> Finance
+2 Вячеслав Волков  80000.22 IT -> Finance
+4 Глеб Козлов  100000.34 IT -> Finance
 
-1 Роман Герасимов IT 70000.17 -> Logistics
-2 Вячеслав Волков IT 80000.22 -> Logistics
+1 Роман Герасимов  70000.17 IT -> Logistics
+2 Вячеслав Волков  80000.22 IT -> Logistics
+4 Глеб Козлов  100000.34 IT -> Logistics
 
-1 Роман Герасимов IT 70000.17 -> Finance
-3 Яков Мамонтов IT 90000.29 -> Finance
+6 Кузьма Стрелков  60000.90 Finance -> Logistics
 
-1 Роман Герасимов IT 70000.17 -> Logistics
-3 Яков Мамонтов IT 90000.29 -> Logistics
+7 Герман Андреев  65000.15 Finance -> Logistics
 
-1 Роман Герасимов IT 70000.17 -> Finance
-2 Вячеслав Волков IT 80000.22 -> Finance
-3 Яков Мамонтов IT 90000.29 -> Finance
+5 Осип Новиков  70000.43 Finance -> Logistics
+6 Кузьма Стрелков  60000.90 Finance -> Logistics
 
-1 Роман Герасимов IT 70000.17 -> Logistics
-2 Вячеслав Волков IT 80000.22 -> Logistics
-3 Яков Мамонтов IT 90000.29 -> Logistics
+5 Осип Новиков  70000.43 Finance -> Logistics
+7 Герман Андреев  65000.15 Finance -> Logistics
 
-1 Роман Герасимов IT 70000.17 -> Finance
-2 Вячеслав Волков IT 80000.22 -> Finance
-4 Глеб Козлов IT 100000.34 -> Finance
+6 Кузьма Стрелков  60000.90 Finance -> Logistics
+7 Герман Андреев  65000.15 Finance -> Logistics
 
-1 Роман Герасимов IT 70000.17 -> Logistics
-2 Вячеслав Волков IT 80000.22 -> Logistics
-4 Глеб Козлов IT 100000.34 -> Logistics
+5 Осип Новиков  70000.43 Finance -> Logistics
+6 Кузьма Стрелков  60000.90 Finance -> Logistics
+7 Герман Андреев  65000.15 Finance -> Logistics
 
