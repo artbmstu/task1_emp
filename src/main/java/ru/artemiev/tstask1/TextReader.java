@@ -9,11 +9,9 @@ import java.text.*;
 import java.util.*;
 
 class TextReader {
-    private Company company;
 
     void getInfoFromFile(Company company){
         try {
-            this.company = company;
             File file = new File("employees.txt");
             FileReader reader = new FileReader(file);
             BufferedReader in = new BufferedReader(reader);
@@ -31,7 +29,7 @@ class TextReader {
                 for (String dep:
                      departments) {
                     if (datas.get(3).equals(dep)) {
-                        company.addEmployee(index, new Employee(Integer.parseInt(datas.get(0)), datas.get(1), datas.get(2), checkNumericDatas(datas.get(4))));
+                        company.addEmployee(index, new Employee(Integer.parseInt(datas.get(0)), datas.get(1), datas.get(2), checkNumericDatas(company, datas.get(4))));
                     }
                 }
             }
@@ -40,7 +38,7 @@ class TextReader {
             System.out.println("Ошибка чтения файла");
         }
     }
-    private BigDecimal checkNumericDatas(String salary){
+    private BigDecimal checkNumericDatas(Company company, String salary){
         BigDecimal decSalary = null;
         try
         {
@@ -55,16 +53,16 @@ class TextReader {
         catch(ParseException pe)
         {
             System.out.println("В исходном файле неправильный тип данных зарплаты");
-            updateInFile();
+            updateInFile(company);
         }
         catch (NumberFormatException nfe){
             System.out.println("Зарплата меньше 0. Исправьте данные в исходном файле");
-            updateInFile();
+            updateInFile(company);
         }
         return decSalary;
     }
 
-    private void updateInFile(){
+    private void updateInFile(Company company){
         System.out.println("После обновления файла с данными введите в консоль \"да\". \n Для выхода из программы введите \"нет\"");
         Scanner sc = new Scanner(System.in);
         if (sc.nextLine().equals("да")) getInfoFromFile(company);
