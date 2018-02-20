@@ -19,17 +19,17 @@ class TextReader {
             String string;
             int index = -1;
             while ((string = in.readLine()) != null) {
-                List<String> datas = Arrays.asList(string.trim().split(" "));
+                List<String> datas = Arrays.asList(string.split(" ", 4));
                 int tempDepSize = departments.size();
-                departments.add(datas.get(3));
+                departments.add(datas.get(1));
                 if (tempDepSize < departments.size()){
-                    company.addDepartment(datas.get(3));
+                    company.addDepartment(datas.get(1));
                     index++;
                 }
                 for (String dep:
                      departments) {
-                    if (datas.get(3).equals(dep)) {
-                        company.addEmployee(index, new Employee(Integer.parseInt(datas.get(0)), datas.get(1), datas.get(2), checkNumericDatas(company, datas.get(4))));
+                    if (datas.get(1).equals(dep)) {
+                        company.addEmployee(index, new Employee(Integer.parseInt(datas.get(0)), checkNumericDatas(company, datas.get(2)), datas.get(3)));
                     }
                 }
             }
