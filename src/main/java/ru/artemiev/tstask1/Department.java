@@ -5,7 +5,7 @@ import java.math.RoundingMode;
 import java.util.ArrayList;
 
 class Department {
-    private final String dep;
+    private String dep;
     private int temp;
     private int[] mas;
     private BigDecimal sum;
