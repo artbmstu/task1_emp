@@ -63,9 +63,10 @@ class TextReader {
     }
 
     private void updateInFile(Company company){
-        System.out.println("После обновления файла с данными введите в консоль \"да\". \n Для выхода из программы введите \"нет\"");
+        System.out.println("После обновления файла с данными введите в консоль \"да\". \nДля выхода из программы введите \"выход\"");
         Scanner sc = new Scanner(System.in);
-        if (sc.nextLine().equals("да")) getInfoFromFile(company);
-        else if (sc.nextLine().equals("нет")) System.exit(0);
+        String inComm = sc.nextLine();
+        if (inComm.equals("выход")) System.exit(0);
+        else getInfoFromFile(company);
     }
 }
