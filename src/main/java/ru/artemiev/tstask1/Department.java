@@ -25,8 +25,12 @@ class Department {
 
     BigDecimal averSalary(){
         BigDecimal sum = BigDecimal.ZERO;
-        for (Employee i: getEmployees()) {
-            sum = i.getSalary().add(sum);
+        try {
+            for (Employee i: getEmployees()) {
+                sum = i.getSalary().add(sum);
+            }
+        } catch (NullPointerException e) {
+            System.out.println("Ошибка null зарплаты (рассчет средней зарплаты в департаменте)");
         }
         return sum.divide(new BigDecimal(getEmployees().size()), 2, RoundingMode.HALF_UP);
     }
@@ -63,8 +67,12 @@ class Department {
 
     BigDecimal averageCalculating(int i, ArrayList<int[]> averVariants){
         sum = new BigDecimal(0);
-        for (int j = 0; j < averVariants.get(i).length; j++) {
-            sum = sum.add(getEmployees().get(averVariants.get(i)[j]-1).getSalary());
+        try {
+            for (int j = 0; j < averVariants.get(i).length; j++) {
+                sum = sum.add(getEmployees().get(averVariants.get(i)[j]-1).getSalary());
+            }
+        } catch (NullPointerException e) {
+            System.out.println("Ошибка. При рассчете используется зарплата null. Исправьте тип данных в исходном файле");
         }
         return sum.divide((new BigDecimal(averVariants.get(i).length)), 2, RoundingMode.HALF_UP);
     }

@@ -53,11 +53,11 @@ class TextReader {
         catch(ParseException pe)
         {
             System.out.println("В исходном файле неправильный тип данных зарплаты");
-            updateInFile(company);
+//            updateInFile(company);
         }
         catch (NumberFormatException nfe){
             System.out.println("Зарплата меньше 0. Исправьте данные в исходном файле");
-            updateInFile(company);
+//            updateInFile(company);
         }
         return decSalary;
     }
