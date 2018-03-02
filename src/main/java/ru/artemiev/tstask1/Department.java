@@ -6,9 +6,6 @@ import java.util.ArrayList;
 
 class Department {
     private String dep;
-    private int temp;
-    private int[] mas;
-    private BigDecimal sum;
     private ArrayList<Employee> employees = new ArrayList<>();
 
     Department(String dep){
@@ -41,32 +38,31 @@ class Department {
 
     ArrayList<int[]> variantsAver(){
         ArrayList<int[]> aver = new ArrayList<>();
+        int temp;
+        int[] mas;
         for (int i = 1; i <= getEmployees().size(); i++) {
             temp = i;
             mas = new int[temp];
-            recursion(aver,0, 0);
+            recursion(aver,0, 0, temp, mas);
         }
         return aver;
     }
 
-    ArrayList<int[]> recursion(ArrayList<int[]> aver, int pos, int maxUsed){
-        if (pos == temp) {
-            int[] temp = new int[mas.length];
-            for (int i = 0; i < mas.length; i++) {
-                temp[i] = mas[i];
-            }
+    ArrayList<int[]> recursion(ArrayList<int[]> aver, int pos, int maxUsed, int temporary, int[] mas){
+        if (pos == temporary) {
+            int[] temp = mas.clone();
             aver.add(temp);
         } else {
             for (int i = maxUsed + 1; i <= getEmployees().size(); i++) {
                 mas[pos] = i;
-                recursion(aver,pos + 1, i);
+                recursion(aver,pos + 1, i, temporary, mas);
             }
         }
         return aver;
     }
 
     BigDecimal averageCalculating(int i, ArrayList<int[]> averVariants){
-        sum = new BigDecimal(0);
+        BigDecimal sum = new BigDecimal(0);
         try {
             for (int j = 0; j < averVariants.get(i).length; j++) {
                 sum = sum.add(getEmployees().get(averVariants.get(i)[j]-1).getSalary());
