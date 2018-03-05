@@ -15,7 +15,7 @@ class TextReader {
             File file = new File("employees.txt");
             FileReader reader = new FileReader(file);
             BufferedReader in = new BufferedReader(reader);
-            HashSet<String> departments = new HashSet<>();
+            Set<String> departments = new HashSet<>();
             String string;
             int index = -1;
             while ((string = in.readLine()) != null) {

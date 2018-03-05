@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.*;
 
  class Company {
-    private ArrayList<Department> departments;
+    private List<Department> departments;
     Company(){
         departments = new ArrayList<>();
         readFile();
@@ -25,7 +25,7 @@ import java.util.*;
 
     void checkTransfer(String[] args) {
         List<String> changeVariations, depInfo;
-        ArrayList<List<String>> changeVariationForWriter = new ArrayList<>();
+        List<List<String>> changeVariationForWriter = new ArrayList<>();
         depInfo = new ArrayList<>();
         for (int i = 0; i < departments.size(); i++) {
             departments.get(i).variantsAver();
@@ -49,7 +49,7 @@ import java.util.*;
         writeFile(args, changeVariationForWriter, depInfo);
     }
 
-    private void writeFile(String[] args, ArrayList<List<String>> changeVariationForWriter, List<String> depInfo){
+    private void writeFile(String[] args, List<List<String>> changeVariationForWriter, List<String> depInfo){
         new TextWriter(args, changeVariationForWriter, depInfo);
     }
 }

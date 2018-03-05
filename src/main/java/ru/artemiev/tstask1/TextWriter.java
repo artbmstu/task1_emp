@@ -7,7 +7,7 @@ import java.util.List;
 
 class TextWriter {
 
-    TextWriter(String[] args, ArrayList<List<String>> changeVariations, List<String> depInfo) {
+    TextWriter(String[] args, List<List<String>> changeVariations, List<String> depInfo) {
         FileWriter writer = null;
         try {
             writer = new FileWriter(args[0]);

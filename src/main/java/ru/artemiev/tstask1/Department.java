@@ -3,16 +3,17 @@ package ru.artemiev.tstask1;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
+import java.util.List;
 
 class Department {
     private String dep;
-    private ArrayList<Employee> employees = new ArrayList<>();
+    private List<Employee> employees = new ArrayList<>();
 
     Department(String dep){
         this.dep = dep;
     }
 
-    ArrayList<Employee> getEmployees() {
+    List<Employee> getEmployees() {
         return employees;
     }
 
@@ -36,8 +37,8 @@ class Department {
         getEmployees().add(employee);
     }
 
-    ArrayList<int[]> variantsAver(){
-        ArrayList<int[]> aver = new ArrayList<>();
+    List<int[]> variantsAver(){
+        List<int[]> aver = new ArrayList<>();
         int temp;
         int[] mas;
         for (int i = 1; i <= getEmployees().size(); i++) {
@@ -48,7 +49,7 @@ class Department {
         return aver;
     }
 
-    private void recursion(ArrayList<int[]> aver, int pos, int maxUsed, int temporary, int[] mas){
+    private void recursion(List<int[]> aver, int pos, int maxUsed, int temporary, int[] mas){
         if (pos == temporary) {
             int[] temp = mas.clone();
             aver.add(temp);
@@ -60,7 +61,7 @@ class Department {
         }
     }
 
-    BigDecimal averageCalculating(int i, ArrayList<int[]> averVariants){
+    BigDecimal averageCalculating(int i, List<int[]> averVariants){
         BigDecimal sum = new BigDecimal(0);
         try {
             for (int j = 0; j < averVariants.get(i).length; j++) {
