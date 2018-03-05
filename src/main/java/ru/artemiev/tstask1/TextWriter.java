@@ -24,7 +24,9 @@ class TextWriter {
         }
         finally {
             try {
-                writer.close();
+                if (writer != null) {
+                    writer.close();
+                }
             } catch (IOException e) {
                 System.out.println("Ошибка закрытия потока FileWriter");
             }

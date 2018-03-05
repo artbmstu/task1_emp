@@ -12,7 +12,7 @@ class Department {
         this.dep = dep;
     }
 
-    public ArrayList<Employee> getEmployees() {
+    ArrayList<Employee> getEmployees() {
         return employees;
     }
 
@@ -48,7 +48,7 @@ class Department {
         return aver;
     }
 
-    ArrayList<int[]> recursion(ArrayList<int[]> aver, int pos, int maxUsed, int temporary, int[] mas){
+    private void recursion(ArrayList<int[]> aver, int pos, int maxUsed, int temporary, int[] mas){
         if (pos == temporary) {
             int[] temp = mas.clone();
             aver.add(temp);
@@ -58,7 +58,6 @@ class Department {
                 recursion(aver,pos + 1, i, temporary, mas);
             }
         }
-        return aver;
     }
 
     BigDecimal averageCalculating(int i, ArrayList<int[]> averVariants){

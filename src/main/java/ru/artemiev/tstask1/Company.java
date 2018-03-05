@@ -3,10 +3,9 @@ package ru.artemiev.tstask1;
 import java.math.BigDecimal;
 import java.util.*;
 
- public class Company {
+ class Company {
     private ArrayList<Department> departments;
-
-     public Company(){
+    Company(){
         departments = new ArrayList<>();
         readFile();
     }
@@ -24,7 +23,7 @@ import java.util.*;
         departments.get(index).addEmployee(employee);
     }
 
-    public void checkTransfer(String[] args) {
+    void checkTransfer(String[] args) {
         List<String> changeVariations, depInfo;
         ArrayList<List<String>> changeVariationForWriter = new ArrayList<>();
         depInfo = new ArrayList<>();
@@ -37,11 +36,11 @@ import java.util.*;
                     changeVariations.add(departments.get(i).getEmployees().get(departments.get(i).variantsAver().get(j)[k] - 1).getFullInfo() +
                             " " + departments.get(i).getDep());
                 }
-                if (averageVar.compareTo(departments.get(i).averSalary()) == -1) {
-                    for (int k = 0; k < departments.size(); k++) {
-                        if (averageVar.compareTo(departments.get(k).averSalary()) == 1) {
+                if (averageVar.compareTo(departments.get(i).averSalary()) < 0) {
+                    for (Department department : departments) {
+                        if (averageVar.compareTo(department.averSalary()) > 0) {
                             changeVariationForWriter.add(changeVariations);
-                            depInfo.add(departments.get(k).getDep());
+                            depInfo.add(department.getDep());
                         }
                     }
                 }
